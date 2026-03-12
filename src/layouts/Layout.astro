@@ -1,0 +1,82 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = "Wrightworks Studios | Apple Software Development",
+	description = "Wrightworks Studios builds thoughtful Apple software for iPhone, iPad, Mac, Apple Watch, and Vision Pro.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--bg: #06131f;
+		--bg-soft: #0f2233;
+		--panel: rgba(10, 29, 44, 0.78);
+		--panel-border: rgba(158, 202, 237, 0.14);
+		--text: #f4f8fb;
+		--muted: #9cb4c8;
+		--accent: #69d1ff;
+		--accent-strong: #2f88ff;
+		--line: rgba(255, 255, 255, 0.08);
+		--shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		margin: 0;
+		min-width: 320px;
+		min-height: 100vh;
+		font-family: "Manrope", sans-serif;
+		background:
+			radial-gradient(circle at top left, rgba(47, 136, 255, 0.22), transparent 32%),
+			radial-gradient(circle at top right, rgba(105, 209, 255, 0.16), transparent 28%),
+			linear-gradient(180deg, #081824 0%, #06131f 45%, #081a28 100%);
+		color: var(--text);
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	img {
+		max-width: 100%;
+		display: block;
+	}
+
+	::selection {
+		background: rgba(105, 209, 255, 0.28);
+	}
+</style>

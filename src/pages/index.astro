@@ -1,0 +1,324 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="Wrightworks Studios | Apple Software Development"
+	description="Wrightworks Studios is a new software studio focused on custom Apple platform development."
+>
+	<main>
+		<section class="hero">
+			<div class="hero-copy">
+				<p class="eyebrow">Wrightworks Studios</p>
+				<h1>Custom software for the Apple ecosystem.</h1>
+				<p class="lede">
+					Wrightworks Studios designs and builds thoughtful apps for iPhone, iPad, Mac,
+					Apple Watch, and Vision Pro.
+				</p>
+				<div class="actions">
+					<a class="button primary" href="mailto:support@wrightworksstudios.com">Start a project</a>
+					<a class="button secondary" href="#services">See services</a>
+				</div>
+			</div>
+			<div class="hero-card">
+				<p class="card-label">Focused studio</p>
+				<ul>
+					<li>Swift and SwiftUI product development</li>
+					<li>Apple-first design and platform strategy</li>
+					<li>Prototype to production delivery</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="grid-section" id="services">
+			<div class="section-heading">
+				<p class="eyebrow">Services</p>
+				<h2>Built for companies that want native Apple experiences.</h2>
+			</div>
+			<div class="cards">
+				<article class="card">
+					<h3>New app development</h3>
+					<p>
+						Product architecture, interface design, and implementation for greenfield Apple
+						apps.
+					</p>
+				</article>
+				<article class="card">
+					<h3>Platform expansion</h3>
+					<p>
+						Bring an existing product to iPad, macOS, watchOS, or visionOS with a native
+						experience.
+					</p>
+				</article>
+				<article class="card">
+					<h3>Technical refinement</h3>
+					<p>
+						Improve performance, modernize UI stacks, and untangle aging app architecture.
+					</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="split-section">
+			<div>
+				<p class="eyebrow">Approach</p>
+				<h2>Small team, direct communication, high attention to product quality.</h2>
+			</div>
+			<div class="stack">
+				<div class="detail">
+					<h3>Apple-native by default</h3>
+					<p>
+						Wrightworks Studios focuses on the patterns, performance expectations, and visual
+						language Apple users already understand.
+					</p>
+				</div>
+				<div class="detail">
+					<h3>Practical delivery</h3>
+					<p>
+						Engagements are shaped around working software, not long handoff documents or
+						theoretical roadmaps.
+					</p>
+				</div>
+				<div class="detail">
+					<h3>Ideal for early-stage products</h3>
+					<p>
+						A good fit for founders and teams that need senior Apple development without
+						building a full internal iOS or macOS team first.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="cta">
+			<div>
+				<p class="eyebrow">Get in touch</p>
+				<h2>Launching something on Apple platforms?</h2>
+				<p>
+					If you need a native app, a prototype, or a strategic second set of eyes on an Apple
+					product, let’s talk.
+				</p>
+			</div>
+			<a class="button primary" href="mailto:support@wrightworksstudios.com">support@wrightworksstudios.com</a>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		width: min(1120px, calc(100% - 2rem));
+		margin: 0 auto;
+		padding: 32px 0 72px;
+	}
+
+	.hero,
+	.grid-section,
+	.split-section,
+	.cta {
+		border: 1px solid var(--line);
+		background: var(--panel);
+		backdrop-filter: blur(18px);
+		box-shadow: var(--shadow);
+	}
+
+	.hero {
+		display: grid;
+		grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);
+		gap: 2rem;
+		padding: 2rem;
+		border-radius: 28px;
+		margin-bottom: 1.25rem;
+	}
+
+	.hero-copy h1,
+	.section-heading h2,
+	.split-section h2,
+	.cta h2 {
+		margin: 0;
+		letter-spacing: -0.04em;
+		line-height: 0.95;
+	}
+
+	.hero-copy h1 {
+		font-size: clamp(3rem, 9vw, 6.2rem);
+		max-width: 10ch;
+	}
+
+	.eyebrow,
+	.card-label {
+		margin: 0 0 0.75rem;
+		font-size: 0.82rem;
+		font-weight: 700;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+
+	.lede,
+	.card p,
+	.detail p,
+	.cta p {
+		color: var(--muted);
+		font-size: 1.05rem;
+		line-height: 1.7;
+	}
+
+	.hero-copy .lede {
+		max-width: 40rem;
+		margin: 1.25rem 0 0;
+	}
+
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.9rem;
+		margin-top: 2rem;
+	}
+
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.95rem 1.3rem;
+		border-radius: 999px;
+		font-weight: 700;
+		transition:
+			transform 160ms ease,
+			border-color 160ms ease,
+			background 160ms ease;
+	}
+
+	.button:hover {
+		transform: translateY(-1px);
+	}
+
+	.primary {
+		background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+		color: #04131f;
+	}
+
+	.secondary {
+		border: 1px solid var(--panel-border);
+		background: rgba(255, 255, 255, 0.03);
+	}
+
+	.hero-card,
+	.card,
+	.detail {
+		border: 1px solid var(--panel-border);
+		border-radius: 24px;
+		background: rgba(255, 255, 255, 0.03);
+	}
+
+	.hero-card {
+		padding: 1.5rem;
+		align-self: end;
+	}
+
+	.hero-card ul {
+		margin: 0;
+		padding-left: 1.1rem;
+		color: var(--text);
+		line-height: 1.8;
+	}
+
+	.grid-section,
+	.split-section,
+	.cta {
+		padding: 2rem;
+		border-radius: 24px;
+	}
+
+	.grid-section,
+	.split-section {
+		margin-top: 1.25rem;
+	}
+
+	.section-heading h2,
+	.split-section h2,
+	.cta h2 {
+		font-size: clamp(2rem, 5vw, 3.6rem);
+		max-width: 13ch;
+	}
+
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+		margin-top: 1.5rem;
+	}
+
+	.card,
+	.detail {
+		padding: 1.5rem;
+	}
+
+	.card h3,
+	.detail h3 {
+		margin: 0 0 0.75rem;
+		font-size: 1.2rem;
+	}
+
+	.split-section {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+		gap: 1.5rem;
+	}
+
+	.stack {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.cta {
+		margin-top: 1.25rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.5rem;
+	}
+
+	@media (max-width: 900px) {
+		.hero,
+		.split-section,
+		.cards {
+			grid-template-columns: 1fr;
+		}
+
+		.cta {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.hero-copy h1 {
+			max-width: none;
+		}
+	}
+
+	@media (max-width: 640px) {
+		main {
+			width: min(100% - 1rem, 1120px);
+			padding-top: 0.5rem;
+			padding-bottom: 1rem;
+		}
+
+		.hero,
+		.grid-section,
+		.split-section,
+		.cta,
+		.card,
+		.detail {
+			border-radius: 20px;
+		}
+
+		.hero,
+		.grid-section,
+		.split-section,
+		.cta {
+			padding: 1.25rem;
+		}
+
+		.button {
+			width: 100%;
+		}
+	}
+</style>
