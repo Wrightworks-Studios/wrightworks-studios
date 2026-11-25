@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Not found · Wrightworks Studios" description="That page isn't here.">
+	<section class="wrap missing">
+		<p class="eyebrow">404</p>
+		<h1>That page has sailed.</h1>
+		<p>It isn't here any more, or it never was. Try the <a href="/">home page</a> or one of our apps below.</p>
+	</section>
+</Layout>
+
+<style>
+	.missing {
+		padding: 120px 0 40px;
+		max-width: 640px;
+	}
+
+	h1 {
+		margin: 12px 0 20px;
+		font-size: clamp(36px, 6vw, 56px);
+	}
+</style>

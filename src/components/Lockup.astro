@@ -1,0 +1,69 @@
+---
+import Ship from '../assets/ship.svg';
+
+interface Props {
+	size?: 'regular' | 'small';
+}
+
+const { size = 'regular' } = Astro.props;
+---
+
+<span class:list={['lockup', size]}>
+	<Ship class="ship" aria-hidden="true" focusable="false" />
+	<span class="words">
+		<span class="name">Wrightworks</span>
+		<span class="studios">Studios</span>
+	</span>
+</span>
+
+<style>
+	.lockup {
+		display: inline-flex;
+		align-items: center;
+		gap: 12px;
+		color: inherit;
+	}
+
+	.ship {
+		width: 46px;
+		height: auto;
+		flex: none;
+	}
+
+	.words {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		line-height: 1;
+	}
+
+	.name {
+		font-family: var(--serif);
+		font-weight: 800;
+		font-size: 25px;
+		letter-spacing: -0.015em;
+	}
+
+	.studios {
+		margin-top: 4px;
+		font-family: var(--sans);
+		font-weight: 500;
+		font-size: 10px;
+		letter-spacing: 0.42em;
+		text-transform: uppercase;
+		/* Letter-spacing adds space after the last letter; this keeps the word centred. */
+		margin-right: -0.42em;
+	}
+
+	.small .ship {
+		width: 40px;
+	}
+
+	.small .name {
+		font-size: 22px;
+	}
+
+	.small .studios {
+		font-size: 9px;
+	}
+</style>

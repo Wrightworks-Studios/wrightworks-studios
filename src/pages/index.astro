@@ -1,324 +1,391 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Product from '../components/Product.astro';
+import Ship from '../assets/ship.svg';
 ---
 
-<Layout
-	title="Wrightworks Studios | Apple Software Development"
-	description="Wrightworks Studios is a new software studio focused on custom Apple platform development."
->
-	<main>
-		<section class="hero">
-			<div class="hero-copy">
-				<p class="eyebrow">Wrightworks Studios</p>
-				<h1>Custom software for the Apple ecosystem.</h1>
-				<p class="lede">
-					Wrightworks Studios designs and builds thoughtful apps for iPhone, iPad, Mac,
-					Apple Watch, and Vision Pro.
-				</p>
-				<div class="actions">
-					<a class="button primary" href="mailto:support@wrightworksstudios.com">Start a project</a>
-					<a class="button secondary" href="#services">See services</a>
+<Layout>
+	<section class="hero wrap" aria-labelledby="hero-title">
+		<div class="hero-copy">
+			<p class="eyebrow">Independent software studio</p>
+			<h1 id="hero-title">Software that respects the people who use it.</h1>
+			<p class="lede">
+				Wrightworks Studios makes native apps for iPhone, iPad, Mac, Apple TV and Apple Watch, and
+				self-hosted tools that keep your data on hardware you control. No ad networks, no tracking,
+				and no account with us that you don't need.
+			</p>
+			<div class="actions">
+				<a class="button primary" href="#apps">See our apps</a>
+				<a class="button secondary" href="#contact">Work with us</a>
+			</div>
+			<ul class="app-row" aria-label="Our apps">
+				<li>
+					<a href="#pixie"><img src="/images/pixie-icon.webp" alt="" width="80" height="80" />Pixie</a>
+				</li>
+				<li>
+					<a href="#forgetmenote"
+						><img src="/images/forgetmenote-icon.webp" alt="" width="80" height="80" />ForgetMeNote</a
+					>
+				</li>
+				<li>
+					<a href="#mytrainingmax"
+						><img src="/images/mytrainingmax-icon.webp" alt="" width="80" height="80" />My Training Max</a
+					>
+				</li>
+			</ul>
+		</div>
+		<div class="hero-art" aria-hidden="true">
+			<Ship class="hero-ship" />
+		</div>
+	</section>
+
+	<section class="apps wrap" id="apps" aria-labelledby="apps-title">
+		<div class="section-head">
+			<p class="eyebrow">Our apps</p>
+			<h2 id="apps-title">Three apps, made the same careful way.</h2>
+			<p>
+				A music and audiobook player for your own server, a shared notebook for people and AI, and
+				a strength-training log that does the maths for you.
+			</p>
+		</div>
+
+		<Product
+			id="pixie"
+			name="Pixie"
+			icon="/images/pixie-icon.webp"
+			status="Public beta on TestFlight"
+			tagline="Music and audiobooks from your own server."
+			platforms={['iPhone', 'iPad', 'Mac', 'Apple TV', 'Apple Watch', 'CarPlay']}
+			image={{
+				src: '/images/pixie.webp',
+				width: 1200,
+				height: 750,
+				alt: 'Pixie on the Mac playing an album, with large cover art and a waveform scrubber',
+			}}
+			links={[
+				{ label: 'Join the beta', href: 'https://testflight.apple.com/join/Sq9BU6pq', primary: true },
+				{ label: 'pixieplayer.app', href: 'https://pixieplayer.app' },
+			]}
+		>
+			<p>
+				Pixie plays your Plex, Jellyfin, Navidrome or Audiobookshelf library, streaming straight from
+				your server with nothing of ours in between. Downloads for offline listening, audiobook
+				bookmarks and CarPlay are all there, and your settings and listening history sync through
+				your own iCloud.
+			</p>
+			<p>There's no Pixie account to make, and no ad or analytics code inside.</p>
+		</Product>
+
+		<Product
+			id="forgetmenote"
+			name="ForgetMeNote"
+			icon="/images/forgetmenote-icon.webp"
+			status="Source available · self-hosted"
+			tagline="Self-hosted notebooks for people and AI."
+			platforms={['Web', 'Your own server', 'MCP for AI tools']}
+			image={{
+				src: '/images/forgetmenote.webp',
+				width: 1200,
+				height: 750,
+				alt: 'The ForgetMeNote editor showing a Markdown note with headings, lists and a table',
+			}}
+			links={[
+				{ label: 'forgetmenote.app', href: 'https://forgetmenote.app', primary: true },
+				{ label: 'View on GitHub', href: 'https://github.com/Wrightworks-Studios/forgetmenote' },
+			]}
+			flip
+		>
+			<p>
+				Write in Markdown, keep every version in Git and edit together in real time. A built-in MCP
+				server lets AI assistants search, read and edit the same notes, under the same roles and
+				permissions as everyone else in the notebook.
+			</p>
+			<p>
+				It runs as one Go binary with Postgres, and every notebook exports as an ordinary Git
+				repository you can keep without us.
+			</p>
+		</Product>
+
+		<Product
+			id="mytrainingmax"
+			name="My Training Max"
+			icon="/images/mytrainingmax-icon.webp"
+			status="Coming soon to the App Store"
+			tagline="Your whole cycle, worked out."
+			platforms={['iPhone', 'iPad', 'Apple Watch']}
+			image={{
+				src: '/images/mytrainingmax.webp',
+				width: 1200,
+				height: 750,
+				alt: 'Three iPhone screens from My Training Max: the cycle overview, a bench workout with plates per side, and strength for bodyweight',
+			}}
+			links={[{ label: 'mytrainingmax.app', href: 'https://mytrainingmax.app', primary: true }]}
+		>
+			<p>
+				A strength-training log for barbell programs built on training maxes. Enter one number per
+				lift, pick a template, and every set of the cycle is laid out with the weight rounded to
+				your plates and the plates to load.
+			</p>
+			<p>
+				A rest timer on the Lock Screen, an Apple Watch app, more than 150 templates you can edit as
+				plain CSV files, and no account. One price, everything included.
+			</p>
+		</Product>
+	</section>
+
+	<section class="principles" id="principles" aria-labelledby="principles-title">
+		<div class="wrap">
+			<div class="section-head">
+				<p class="eyebrow">How we work</p>
+				<h2 id="principles-title">What every Wrightworks app has in common.</h2>
+			</div>
+			<div class="grid">
+				<div class="principle">
+					<h3>Your data stays yours</h3>
+					<p>
+						No accounts with us, no advertising or analytics code, no tracking. Your data lives on your
+						devices, in your own iCloud or on your own server.
+					</p>
+				</div>
+				<div class="principle">
+					<h3>Native to the platform</h3>
+					<p>
+						Swift and SwiftUI on Apple devices, with the widgets, Lock Screen, Apple Watch and CarPlay
+						support people expect. On the server, a single binary that's easy to run.
+					</p>
+				</div>
+				<div class="principle">
+					<h3>Formats you can open</h3>
+					<p>
+						Workout templates are CSV files, notes are Markdown in Git, and your music stays in your own
+						library. Nothing is locked in.
+					</p>
+				</div>
+				<div class="principle">
+					<h3>Small and independent</h3>
+					<p>
+						A few products, each built carefully and looked after. No dark patterns, no nagging
+						upsells and no surprises in the fine print.
+					</p>
 				</div>
 			</div>
-			<div class="hero-card">
-				<p class="card-label">Focused studio</p>
-				<ul>
-					<li>Swift and SwiftUI product development</li>
-					<li>Apple-first design and platform strategy</li>
-					<li>Prototype to production delivery</li>
-				</ul>
-			</div>
-		</section>
+		</div>
+	</section>
 
-		<section class="grid-section" id="services">
-			<div class="section-heading">
-				<p class="eyebrow">Services</p>
-				<h2>Built for companies that want native Apple experiences.</h2>
-			</div>
-			<div class="cards">
-				<article class="card">
-					<h3>New app development</h3>
-					<p>
-						Product architecture, interface design, and implementation for greenfield Apple
-						apps.
-					</p>
-				</article>
-				<article class="card">
-					<h3>Platform expansion</h3>
-					<p>
-						Bring an existing product to iPad, macOS, watchOS, or visionOS with a native
-						experience.
-					</p>
-				</article>
-				<article class="card">
-					<h3>Technical refinement</h3>
-					<p>
-						Improve performance, modernize UI stacks, and untangle aging app architecture.
-					</p>
-				</article>
-			</div>
-		</section>
-
-		<section class="split-section">
+	<section class="contact wrap" id="contact" aria-labelledby="contact-title">
+		<div class="contact-card">
 			<div>
-				<p class="eyebrow">Approach</p>
-				<h2>Small team, direct communication, high attention to product quality.</h2>
-			</div>
-			<div class="stack">
-				<div class="detail">
-					<h3>Apple-native by default</h3>
-					<p>
-						Wrightworks Studios focuses on the patterns, performance expectations, and visual
-						language Apple users already understand.
-					</p>
-				</div>
-				<div class="detail">
-					<h3>Practical delivery</h3>
-					<p>
-						Engagements are shaped around working software, not long handoff documents or
-						theoretical roadmaps.
-					</p>
-				</div>
-				<div class="detail">
-					<h3>Ideal for early-stage products</h3>
-					<p>
-						A good fit for founders and teams that need senior Apple development without
-						building a full internal iOS or macOS team first.
-					</p>
-				</div>
-			</div>
-		</section>
-
-		<section class="cta">
-			<div>
-				<p class="eyebrow">Get in touch</p>
-				<h2>Launching something on Apple platforms?</h2>
+				<p class="eyebrow">Work with us</p>
+				<h2 id="contact-title">Building something for Apple devices?</h2>
 				<p>
-					If you need a native app, a prototype, or a strategic second set of eyes on an Apple
-					product, let’s talk.
+					Alongside our own apps, we take on a small number of client projects: new apps for iPhone,
+					iPad, Mac and Apple Watch, bringing an existing app to more Apple devices, and untangling
+					code that has grown hard to change.
+				</p>
+				<p class="support-note">
+					Need help with one of our apps? Write to
+					<a href="mailto:support@pixieplayer.app">support@pixieplayer.app</a> or
+					<a href="mailto:support@mytrainingmax.app">support@mytrainingmax.app</a>, or open an issue
+					on <a href="https://github.com/Wrightworks-Studios/forgetmenote">ForgetMeNote's GitHub</a>.
 				</p>
 			</div>
-			<a class="button primary" href="mailto:support@wrightworksstudios.com">support@wrightworksstudios.com</a>
-		</section>
-	</main>
+			<a class="button primary" href="mailto:support@wrightworksstudios.com">Email the studio</a>
+		</div>
+	</section>
 </Layout>
 
 <style>
-	main {
-		width: min(1120px, calc(100% - 2rem));
-		margin: 0 auto;
-		padding: 32px 0 72px;
-	}
-
-	.hero,
-	.grid-section,
-	.split-section,
-	.cta {
-		border: 1px solid var(--line);
-		background: var(--panel);
-		backdrop-filter: blur(18px);
-		box-shadow: var(--shadow);
-	}
-
 	.hero {
 		display: grid;
-		grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);
-		gap: 2rem;
-		padding: 2rem;
-		border-radius: 28px;
-		margin-bottom: 1.25rem;
+		grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+		gap: 48px;
+		align-items: center;
+		padding: 88px 0 72px;
 	}
 
-	.hero-copy h1,
-	.section-heading h2,
-	.split-section h2,
-	.cta h2 {
-		margin: 0;
-		letter-spacing: -0.04em;
-		line-height: 0.95;
+	h1 {
+		margin-top: 16px;
+		font-size: clamp(40px, 6vw, 68px);
+		font-weight: 750;
+		line-height: 1.02;
+		letter-spacing: -0.02em;
+		text-wrap: balance;
 	}
 
-	.hero-copy h1 {
-		font-size: clamp(3rem, 9vw, 6.2rem);
-		max-width: 10ch;
-	}
-
-	.eyebrow,
-	.card-label {
-		margin: 0 0 0.75rem;
-		font-size: 0.82rem;
-		font-weight: 700;
-		letter-spacing: 0.18em;
-		text-transform: uppercase;
-		color: var(--accent);
-	}
-
-	.lede,
-	.card p,
-	.detail p,
-	.cta p {
-		color: var(--muted);
-		font-size: 1.05rem;
-		line-height: 1.7;
-	}
-
-	.hero-copy .lede {
-		max-width: 40rem;
-		margin: 1.25rem 0 0;
+	.lede {
+		margin-top: 24px;
+		max-width: 56ch;
+		font-size: 19px;
+		color: var(--text);
 	}
 
 	.actions {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.9rem;
-		margin-top: 2rem;
+		gap: 12px;
+		margin-top: 32px;
 	}
 
-	.button {
+	.app-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px 24px;
+		margin: 40px 0 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.app-row a {
 		display: inline-flex;
 		align-items: center;
-		justify-content: center;
-		padding: 0.95rem 1.3rem;
-		border-radius: 999px;
-		font-weight: 700;
-		transition:
-			transform 160ms ease,
-			border-color 160ms ease,
-			background 160ms ease;
+		gap: 10px;
+		color: var(--ink);
+		font-weight: 600;
+		font-size: 15px;
+		text-decoration: none;
 	}
 
-	.button:hover {
-		transform: translateY(-1px);
+	.app-row a:hover {
+		text-decoration: underline;
 	}
 
-	.primary {
-		background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
-		color: #04131f;
+	.app-row img {
+		width: 36px;
+		height: 36px;
+		border-radius: 9px;
+		outline: 1px solid var(--line);
 	}
 
-	.secondary {
-		border: 1px solid var(--panel-border);
-		background: rgba(255, 255, 255, 0.03);
-	}
-
-	.hero-card,
-	.card,
-	.detail {
-		border: 1px solid var(--panel-border);
-		border-radius: 24px;
-		background: rgba(255, 255, 255, 0.03);
-	}
-
-	.hero-card {
-		padding: 1.5rem;
-		align-self: end;
-	}
-
-	.hero-card ul {
-		margin: 0;
-		padding-left: 1.1rem;
-		color: var(--text);
-		line-height: 1.8;
-	}
-
-	.grid-section,
-	.split-section,
-	.cta {
-		padding: 2rem;
-		border-radius: 24px;
-	}
-
-	.grid-section,
-	.split-section {
-		margin-top: 1.25rem;
-	}
-
-	.section-heading h2,
-	.split-section h2,
-	.cta h2 {
-		font-size: clamp(2rem, 5vw, 3.6rem);
-		max-width: 13ch;
-	}
-
-	.cards {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 1rem;
-		margin-top: 1.5rem;
-	}
-
-	.card,
-	.detail {
-		padding: 1.5rem;
-	}
-
-	.card h3,
-	.detail h3 {
-		margin: 0 0 0.75rem;
-		font-size: 1.2rem;
-	}
-
-	.split-section {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-		gap: 1.5rem;
-	}
-
-	.stack {
-		display: grid;
-		gap: 1rem;
-	}
-
-	.cta {
-		margin-top: 1.25rem;
+	.hero-art {
+		color: var(--ink);
 		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 1.5rem;
+		justify-content: center;
 	}
 
-	@media (max-width: 900px) {
-		.hero,
-		.split-section,
-		.cards {
+	.hero-art :global(.hero-ship) {
+		width: min(100%, 400px);
+		height: auto;
+		opacity: 0.95;
+	}
+
+	.section-head {
+		max-width: 680px;
+	}
+
+	.section-head h2 {
+		margin-top: 12px;
+		font-size: clamp(30px, 4vw, 44px);
+		text-wrap: balance;
+	}
+
+	.section-head p:not(.eyebrow) {
+		margin-top: 16px;
+		color: var(--muted);
+		font-size: 18px;
+	}
+
+	.apps {
+		padding-top: 40px;
+	}
+
+	.apps .section-head {
+		margin-bottom: 48px;
+	}
+
+	.principles {
+		margin-top: 56px;
+		padding: 88px 0;
+		background: var(--bg-deep);
+		border-top: 1px solid var(--line);
+		border-bottom: 1px solid var(--line);
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 32px;
+		margin-top: 48px;
+	}
+
+	.principle {
+		padding-top: 20px;
+		border-top: 2px solid var(--ink);
+	}
+
+	.principle h3 {
+		font-size: 22px;
+	}
+
+	.principle p {
+		margin-top: 12px;
+		color: var(--muted);
+	}
+
+	.contact {
+		padding-top: 96px;
+	}
+
+	.contact-card {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 40px;
+		padding: 48px;
+		border-radius: 24px;
+		background: var(--surface);
+		border: 1px solid var(--line);
+		box-shadow: var(--shadow);
+	}
+
+	.contact-card h2 {
+		margin-top: 12px;
+		font-size: clamp(28px, 3.6vw, 40px);
+	}
+
+	.contact-card p:not(.eyebrow) {
+		margin-top: 16px;
+		max-width: 60ch;
+	}
+
+	.contact-card .support-note {
+		color: var(--muted);
+		font-size: 15px;
+	}
+
+	@media (max-width: 960px) {
+		.grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 860px) {
+		.hero {
+			grid-template-columns: 1fr;
+			padding: 56px 0 48px;
+		}
+
+		.hero-art {
+			display: none;
+		}
+
+		.contact-card {
+			flex-direction: column;
+			align-items: flex-start;
+			padding: 32px 24px;
+		}
+	}
+
+	@media (max-width: 560px) {
+		.grid {
 			grid-template-columns: 1fr;
 		}
 
-		.cta {
-			flex-direction: column;
-			align-items: flex-start;
+		.principles {
+			padding: 64px 0;
 		}
 
-		.hero-copy h1 {
-			max-width: none;
-		}
-	}
-
-	@media (max-width: 640px) {
-		main {
-			width: min(100% - 1rem, 1120px);
-			padding-top: 0.5rem;
-			padding-bottom: 1rem;
-		}
-
-		.hero,
-		.grid-section,
-		.split-section,
-		.cta,
-		.card,
-		.detail {
-			border-radius: 20px;
-		}
-
-		.hero,
-		.grid-section,
-		.split-section,
-		.cta {
-			padding: 1.25rem;
-		}
-
-		.button {
-			width: 100%;
+		.lede {
+			font-size: 18px;
 		}
 	}
 </style>
